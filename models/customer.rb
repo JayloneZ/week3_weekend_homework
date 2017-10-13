@@ -84,4 +84,13 @@ attr_accessor :funds, :name
     SqlRunner.run(sql, values).map {|film| Film.new(film)}
   end
 
+  def amount_of_films()
+    sql = "
+      SELECT * FROM tickets
+      WHERE customer_id = $1
+    "
+    values = [@id]
+    SqlRunner.run(sql, values).map {|ticket| Ticket.new(ticket)}.length
+  end
+
 end

@@ -85,4 +85,13 @@ class Film
     SqlRunner.run(sql, values).map {|customer| Customer.new(customer)}
   end
 
+  def amount_of_customers()
+    sql = "
+      SELECT * FROM tickets
+      WHERE film_id = $1
+    "
+    values = [@id]
+    SqlRunner.run(sql, values).map {|ticket| Ticket.new(ticket)}.length
+  end
+
 end

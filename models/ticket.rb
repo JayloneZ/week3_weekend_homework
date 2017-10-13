@@ -29,7 +29,15 @@ attr_accessor :customer_id, :film_id
     values = [@customer_id, @film_id]
     result = SqlRunner.run(sql, values)[0]
     @id = result['id'].to_i
-
+    for customer in Customer.all
+      if result['customer_id'] = customer.id
+        for film in Film.all
+          if result['film_id'] = film.id
+            customer.funds -= film.price
+          end
+        end
+      end
+    end
   end
 
   def self.all()
