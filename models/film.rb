@@ -5,11 +5,12 @@ require_relative '../db/sql_runner.rb'
 class Film
 
   attr_reader :id
-  attr_accessor :price, :title
+  attr_accessor :price, :title, :time
   def initialize(options)
     @id = options['id'].to_i if options['id']
     @title = options['title']
     @price = options['price'].to_i
+    @time = options['time']
   end
 
   def save()
