@@ -95,4 +95,15 @@ class Film
     SqlRunner.run(sql, values).map {|ticket| Ticket.new(ticket)}.length
   end
 
+# separate by screening_id, check which has more items
+  # 
+  # def most_popular_time()
+  #   sql = "
+  #     SELECT * FROM tickets
+  #     WHERE film_id = $1
+  #   "
+  #   values = [@id]
+  #   result = SqlRunner.run(sql, values).map {|ticket| Ticket.new(ticket)}
+  # end
+
 end

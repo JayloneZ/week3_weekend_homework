@@ -52,8 +52,4 @@ def amount_of_customers()
   SqlRunner.run(sql, values).map {|ticket| Ticket.new(ticket)}.length
 end
 
-def self.most_popular_film()
-  Film.all.max {|film| film.amount_of_customers}
-end
-
 end
